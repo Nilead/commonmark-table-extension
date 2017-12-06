@@ -4,6 +4,7 @@
  * This is part of the webuni/commonmark-table-extension package.
  *
  * (c) Martin Hasoň <martin.hason@gmail.com>
+ * (c) Webuni s.r.o. <info@webuni.cz>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -29,7 +30,7 @@ class Table extends AbstractBlock
 
     public function canContain(AbstractBlock $block)
     {
-        return $block instanceof TableRows;
+        return $block instanceof TableRows || $block instanceof TableCaption;
     }
 
     public function acceptsLines()
@@ -40,6 +41,27 @@ class Table extends AbstractBlock
     public function isCode()
     {
         return false;
+    }
+
+    public function setCaption(TableCaption $caption = null)
+    {
+        $node = $this->getCaption();
+        if ($node instanceof TableCaption) {
+            $node->detach();
+        }
+
+        if ($caption instanceof TableCaption) {
+            $this->prependChild($caption);
+        }
+    }
+
+    public function getCaption()
+    {
+        foreach ($this->children() as $child) {
+            if ($child instanceof TableCaption) {
+                return $child;
+            }
+        }
     }
 
     public function getHead()
