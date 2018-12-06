@@ -8,8 +8,7 @@
     "authors": [
         {
             "name": "Martin Hasoň",
-            "email": "martin.hason@gmail.com",
-            "role": "Lead Developer"
+            "email": "martin.hason@gmail.com"
         },
         {
             "name": "Webuni s.r.o.",
@@ -17,14 +16,14 @@
         }
     ],
     "require": {
-        "php": "^5.5|^7.0",
-        "league/commonmark": "dev-master"
+        "php": "^5.6|^7.0",
+        "league/commonmark": "^0.16|^0.17|^0.18"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.3|^5.0",
-        "friendsofphp/php-cs-fixer": "^1.9",
-        "sllh/php-cs-fixer-styleci-bridge": "^2.0",
-        "symfony/var-dumper": "^2.7|^3.0"
+        "phpunit/phpunit": "^5.4|^6.0",
+        "vimeo/psalm": "~0.3",
+        "friendsofphp/php-cs-fixer": "^2.9",
+        "symfony/var-dumper": "^3.0|^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,7 +32,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.7-dev"
+            "dev-master": "0.9-dev"
         }
     }
 }
